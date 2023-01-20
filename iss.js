@@ -1,4 +1,6 @@
-const request = require('request');
+// const request = require('request');
+const request = require('request-promise-native')
+
 
 const fetchMyIP = function (callback) {
   // use request to fetch IP address from JSON API
@@ -80,4 +82,16 @@ const nextISSTimesForMyLocation = function (callback) {
   })
 }
 
-module.exports = { fetchMyIP, fetchCoordsByIP, fetchISSFlyOverTimes, nextISSTimesForMyLocation };
+const fetchCustomIP = () => {
+  return request('https://api64.ipify.org?format=json')
+  .then((body) => {
+    const data = JSON.parse(body); 
+
+    return data.ip; 
+  }); 
+};
+
+
+
+
+module.exports = { fetchMyIP, fetchCoordsByIP, fetchISSFlyOverTimes, nextISSTimesForMyLocation, fetchCustomIP };
