@@ -45,4 +45,3 @@ const printPassTimes = function(passTimes) {
   }
 };
 
-console.log(fetchCustomIP()); 

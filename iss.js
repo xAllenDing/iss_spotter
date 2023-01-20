@@ -82,16 +82,6 @@ const nextISSTimesForMyLocation = function (callback) {
   })
 }
 
-const fetchCustomIP = () => {
-  return request('https://api64.ipify.org?format=json')
-  .then((body) => {
-    const data = JSON.parse(body); 
-
-    return data.ip; 
-  }); 
-};
 
 
-
-
-module.exports = { fetchMyIP, fetchCoordsByIP, fetchISSFlyOverTimes, nextISSTimesForMyLocation, fetchCustomIP };
+module.exports = { fetchMyIP, fetchCoordsByIP, fetchISSFlyOverTimes, nextISSTimesForMyLocation };
